@@ -58,15 +58,9 @@ int main()
 	//endTime = timeVar.millitm + (timeVar.time & 0xfffff) * 1000;
 
 
-	int countTo[3];
 	DWORD dwThreadIdArray[3];
 	HANDLE hThreadArray[3];
 	int maxCount = 1000000000;
-
-	for (int i = 0; i < 3; i++) {
-		countTo[i] = (int)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(int));
-		countTo[i] = 1000000000;
-	}
 
 	hThreadArray[0] = CreateThread(NULL, 0, fizz, &maxCount, 0, &dwThreadIdArray[0]);
 	hThreadArray[1] = CreateThread(NULL, 0, buzz, &maxCount, 0, &dwThreadIdArray[1]);
