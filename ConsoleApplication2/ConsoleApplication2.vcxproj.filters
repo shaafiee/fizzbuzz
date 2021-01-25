@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="fizzbuzz.cpp">
+    <ClCompile Include="fizzbuzz_most_optimal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
