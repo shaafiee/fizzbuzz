@@ -4,49 +4,37 @@
 
 int main()
 {
-	const int countTo = 1000000000;
-	int fizz, buzz, fizzbuzz;
 
-	unsigned char numState;
+	int fizz = 0, buzz = 0, fizzbuzz = 0;
 
-	fizz = 0;
-	buzz = 0;
-	fizzbuzz = 0;
+	bool isFizz = false;
 
 	auto startTime = std::chrono::high_resolution_clock::now();
 
-	for (int i = 1; i <= countTo; i++) {
-		numState = 0;
+	for (unsigned int i = 1; i <= 4000000000; i++) {
+		isFizz = false;
 
 		if (i % 3 == 0) {
-			numState++;
+			isFizz = true;
+			fizz++;
 		}
 
 		if (i % 5 == 0) {
-			numState += 3;
-		}
-
-		switch (numState) {
-			case 0:
-				break;
-			case 1:
-				fizz++;
-				break;
-			case 3:
-				buzz++;
-				break;
-			case 4:
+			if (isFizz) {
+				fizz--;
 				fizzbuzz++;
-				break;
+			}
+			else {
+				buzz++;
+			}
 		}
 
 	}
 
-
 	auto endTime = std::chrono::high_resolution_clock::now();
 	auto totalTime = endTime - startTime;
 
-	printf("fizz : %d, buzz: %d, fizzbuzz: %d, duration %lld nanoseconds\n", fizz, buzz, fizzbuzz, (totalTime / std::chrono::milliseconds(1)));
+	printf("\t fizz : %d, buzz: %d, fizzbuzz: %d, duration %lld milliseconds\n", fizz, buzz, fizzbuzz, (totalTime / std::chrono::milliseconds(1)));
 
 	return 0;
 }
